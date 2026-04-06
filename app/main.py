@@ -11,9 +11,7 @@ def create_person_list(people: list) -> list:
     result = []
     Person.people.clear()
 
-    for item in people:
-        person_obj = Person(name=item["name"], age=item["age"])
-        result.append(person_obj)
+    result = [Person(item["name"], item["age"]) for item in people]
 
     for person_dict in people:
         person = Person.people[person_dict["name"]]
